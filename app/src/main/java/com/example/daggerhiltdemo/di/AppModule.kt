@@ -14,17 +14,17 @@ import javax.inject.Singleton
 class AppModule {
 
     @Provides
-    fun provideBaseUrl():String = "https://jsonplaceholder.typicode.com/"
+    fun provideBaseUrl(): String = "https://jsonplaceholder.typicode.com/"
 
     @Provides
     @Singleton
-    fun providesRetrofit(baseUrl: String):Retrofit =
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    fun providesRetrofit(baseUrl: String): Retrofit =
+            Retrofit.Builder()
+                    .baseUrl(baseUrl)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
 
     @Provides
-    fun providesApiService(retrofit: Retrofit) :PostApiService=
-        retrofit.create(PostApiService::class.java)
+    fun providesApiService(retrofit: Retrofit): PostApiService =
+            retrofit.create(PostApiService::class.java)
 }

@@ -13,8 +13,8 @@ class PostViewModel
 @ViewModelInject
 constructor(private val postRepository: PostRepository)
     : ViewModel() {
-    val response:LiveData<List<Post>> = postRepository.getPost()
-        .catch { e->
-            Log.d("main---","${e.message}")
-        }.asLiveData()
+    val response: LiveData<List<Post>> = postRepository.getPost()
+            .catch { e ->
+                Log.d("main---", "${e.message}")
+            }.asLiveData()
 }
